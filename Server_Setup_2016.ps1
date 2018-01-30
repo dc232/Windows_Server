@@ -2,7 +2,7 @@
 #GLOBAL VARS
 #################################################
 
-$IPAddr="10.0.2.11" #apperantly this is the way to delcare variables in powershell this is the inverse of what happens in linux
+$IPAddr="10.0.2.11" #apparently this is the way to declare variables in powershell this is the inverse of what happens in linux
 $Default_Gateway="10.0.0.1"
 $Domain_Name="CLOUD.com"
 $Database_Path="C:\Windows\NTDS"
@@ -17,7 +17,7 @@ New-NetIPAddress -InterfaceIndex 3 -IPAddress $IPAddr -PrefixLength 8 -DefaultGa
 }
 
 function services {
-echo "Changings status of the follwing services  FDResPub SSDPSRV upnphost for automated network discovery"
+echo "Changing status of the following services FDResPub SSDPSRV upnphost for automated network discovery"
 Set-Service -Name "FDResPub" -Status Running -StartupType Automatic -PassThru #same as systemctl start nginx in linux or service nginx start
 Set-Service -Name "SSDPSRV" -Status Running -StartupType Automatic -PassThru
 Set-Service -Name "upnphost" -Status Running -StartupType Automatic -PassThru
@@ -35,7 +35,7 @@ Install-ADDSForest -DomainName $Domain_Name -Confirm -DatabasePath $Database_Pat
 #same as sudo apt-get install nginx -y/ yum install nginx -y in linux
 }
 
-echo "This is a script designed for windows server to Do Ip addressing make the server network discoverable and promote the server to an AD"
+echo "This is a script designed for windows server to Do IP addressing make the server network discoverable and promote the server to an AD"
 sleep 10
 
 ip_addressing
